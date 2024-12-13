@@ -38,12 +38,10 @@ cd reverse_proxy_basemaps_planet
 Follow the instructions in the `config/` directory to set up your reverse proxy server. Ensure you have the necessary software installed (e.g., Nginx, Apache).
 
 ### Setting Up API Key and Credentials
+Create a `.env` file in the root directory and add your Planet API key and other credentials:
 
-Create a `secrets.toml` file in the root directory and add your Planet API key and other credentials:
-
-```toml
-[default]
-PLANET_API_KEY = "your_api_key_here"
+```env
+PLANET_API_KEY=your_api_key_here
 ```
 
 ### Deploying on Render.com
@@ -54,7 +52,7 @@ PLANET_API_KEY = "your_api_key_here"
 4. In the "Start Command" field, enter the command to start your reverse proxy server using Uvicorn. For example:
 
 ```sh
-uvicorn main:app --host 0.0.0.0 --port 8000
+uvicorn reverse_proxy:app --host 0.0.0.0 --port 8000
 ```
 
 5. Set up environment variables in Render.com with your API key and other credentials.

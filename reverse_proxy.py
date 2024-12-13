@@ -1,12 +1,13 @@
 from fastapi import FastAPI, Response
 import requests
-import toml
+from dotenv import load_dotenv
+import os
 
 app = FastAPI()
 
-# Load the API key from secrets.toml
-secrets = toml.load("secrets.toml")
-API_KEY = secrets["planet"]["api_key"]
+# Load the API key from .env file
+load_dotenv()
+API_KEY = os.getenv("PLANET_API_KEY")
 
 @app.get("/tiles/{tile_path:path}")
 def get_tile(tile_path: str):

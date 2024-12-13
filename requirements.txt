@@ -2,3 +2,4 @@ fastapi
 uvicorn
 toml
 requests
+python-dotenv
