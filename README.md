@@ -20,7 +20,7 @@ This README file is part of the reverse_proxy_basemaps_planet project. The proje
 1. Clone the repository to your local machine.
 2. Configure the reverse proxy server with the provided configuration files.
 3. Set up the API key and other necessary credentials.
-4. Deploy the application on Render.com.
+4. Deploy the application on Render.com using Uvicorn.
 
 For detailed instructions, refer to the sections below.
 
@@ -51,10 +51,10 @@ PLANET_API_KEY = "your_api_key_here"
 1. Log in to your Render.com account.
 2. Create a new Web Service and connect it to your GitHub repository.
 3. In the "Build Command" field, enter the command to build your project (if applicable).
-4. In the "Start Command" field, enter the command to start your reverse proxy server. For example, if using Nginx:
+4. In the "Start Command" field, enter the command to start your reverse proxy server using Uvicorn. For example:
 
 ```sh
-sudo systemctl start nginx
+uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 5. Set up environment variables in Render.com with your API key and other credentials.
